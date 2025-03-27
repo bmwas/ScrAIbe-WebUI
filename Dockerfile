@@ -23,7 +23,7 @@ COPY pyproject.toml /app/src/pyproject.toml
 COPY LICENSE /app/src/LICENSE
 COPY run_docker.sh /app/run_docker.sh
 RUN chmod +x /app/run_docker.sh && \
-    mkdir /data
+COPY ./data /app
 
 #Installing all necessary Dependencies and Running the Application with a personalised Hugging-Face-Token
 RUN apt update -y && apt upgrade -y && \
