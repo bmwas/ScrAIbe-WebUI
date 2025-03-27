@@ -17,13 +17,13 @@ WORKDIR /app
 ENV AUTOT_CACHE=/data/models/
 ENV GRADIO_SERVER_NAME=0.0.0.0
 #Copy all necessary files
+COPY ./data /app
 COPY README.md /app/src/README.md
 COPY scraibe_webui /app/src/scraibe_webui
 COPY pyproject.toml /app/src/pyproject.toml
 COPY LICENSE /app/src/LICENSE
 COPY run_docker.sh /app/run_docker.sh
-RUN chmod +x /app/run_docker.sh && \
-COPY ./data /app
+RUN chmod +x /app/run_docker.sh
 
 #Installing all necessary Dependencies and Running the Application with a personalised Hugging-Face-Token
 RUN apt update -y && apt upgrade -y && \
